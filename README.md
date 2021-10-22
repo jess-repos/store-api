@@ -2,7 +2,7 @@
 
 ## How to start
 
-1. clone repository => $git clone https://github.com/jess-repos/jwt-authentication.git
+1. clone repository - $git clone https://github.com/jess-repos/jwt-authentication.git
 2. alternatively, you can download zip file from https://github.com/jess-repos/jwt-authentication.git and extract
 3. open terminal/command line on project directory
 4. $npm install

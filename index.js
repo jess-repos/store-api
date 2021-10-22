@@ -12,7 +12,7 @@ app.use("/auth", require("./routes/auth"));
 const run = async () => {
   try {
     await sequelize.sync();
-    // await sequelize.sync({ force: true });
+    // await sequelize.sync({ force: true }); // wipes all table data
     console.log("[DATABASE] Ready");
     await app.listen(7000);
     console.log("[SERVER] Listening on port 7000");
