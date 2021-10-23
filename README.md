@@ -23,12 +23,11 @@ User authentication using Json Web Tokens
 1. ./connection/database.js - database connection
 2. ./middlewares/verifyToken.js - middleware to verify token
 3. ./models/User.js - User model
-4. ./routes/auth.js - [POST] Login route
-5. ./routes/user.js - [POST] Create user route
-6. ./routes/user.js - [PUT] Update user route
-7. ./services/AuthServices - Login handler
-8. ./services/UserServices - Create user handler/Update user handler
-9. ./utilities/asyncIO.js - simplify use of asynchronous methods
+4. ./routes/auth.js - Auth Routes
+5. ./routes/user.js - User Routes
+6. ./services/AuthServices - Login handler
+7. ./services/UserServices - Create user handler/Update user handler
+8. ./utilities/asyncIO.js - simplify use of asynchronous methods
 
 ### Routes
 
