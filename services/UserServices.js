@@ -3,7 +3,7 @@ const asyncIO = require("../utilities/asyncIO");
 
 const createUser = async (user) => {
   const [createdUser, createUserError] = await asyncIO(() => User.create(user));
-  if (createUserError) return createUserError;
+  if (createUserError) return { error: createUserError };
 
   createdUser.password = undefined;
   return createdUser;
@@ -14,8 +14,8 @@ const updateUser = async (id, updatedUserValues) => {
     User.findOne({ where: { id: id } })
   );
 
-  if (findExistingUserError) return findExistingUserError;
-  if (!existingUser) return "User does not exist";
+  if (findExistingUserError) return { error: findExistingUserError };
+  if (!existingUser) return { error: "User does not exist" };
 
   existingUser.username = updatedUserValues.username;
   existingUser.email = updatedUserValues.email;
@@ -24,8 +24,8 @@ const updateUser = async (id, updatedUserValues) => {
   const [updatedUser, updateUserError] = await asyncIO(() =>
     existingUser.save()
   );
-  
-  if (updateUserError) return updateUserError;
+
+  if (updateUserError) return { error: updateUserError };
 
   updatedUser.password = undefined;
   return updatedUser;

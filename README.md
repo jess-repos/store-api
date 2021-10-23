@@ -1,5 +1,7 @@
 # JWT Authentication by jess-repos
 
+User authentication using Json Web Tokens
+
 ## How to start
 
 1. clone repository - $git clone https://github.com/jess-repos/jwt-authentication.git
@@ -30,8 +32,8 @@
 
 ### Routes
 
-1. [POST]/users/ - Create User
-2. [PUT]/users/ - Update User
+1. [POST]/users/create/ - Create User
+2. [POST]/users/update/ - Update User (requires token)
 3. [POST]/auth/login/ - Login
 
 ### Models

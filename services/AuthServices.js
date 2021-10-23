@@ -10,13 +10,13 @@ const login = async (email, password) => {
     })
   );
 
-  if (findUserError) return findUserError;
-  if (!foundUser) return "Invalid email or password";
+  if (findUserError) return { error: findUserError };
+  if (!foundUser) return { error: "Invalid email or password" };
   const token = jwt.sign(
     { id: foundUser.id, username: foundUser.username, email: foundUser.email },
     process.env.TOKEN_KEY
   );
-  return { token };
+  return { token, foundUser };
 };
 
 module.exports = { login };
