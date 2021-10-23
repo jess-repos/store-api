@@ -27,3 +27,36 @@
 7. ./services/AuthServices - Login handler
 8. ./services/UserServices - Create user handler/Update user handler
 9. ./utilities/asyncIO.js - simplify use of asynchronous methods
+
+### Routes
+
+1. [POST]/users/ - Create User
+2. [PUT]/users/ - Update User
+3. [POST]/auth/login/ - Login
+
+### Models
+
+**User Model**
+
+'''
+{
+    username: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+      validate: { len: [4, 128] },
+    },
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+      validate: { len: [4, 128] },
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: { len: [4, 128] },
+    },
+  }
+'''
+
