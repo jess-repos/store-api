@@ -1,21 +1,22 @@
 const express = require("express");
-const sequelize = require("./connection/database");
+const connection = require("./database/connection");
 require("dotenv").config();
 
 const app = express();
+const port = process.env.PORT || 7000;
 
 app.use(express.json());
 
-app.use("/users", require("./routes/user"));
+app.use("/user", require("./routes/user"));
 app.use("/auth", require("./routes/auth"));
 
 const run = async () => {
   try {
-    await sequelize.sync();
-    // await sequelize.sync({ force: true }); // wipes all table data
+    await connection.sync();
+    // await connection.sync({ force: true }); // wipes all table data
     console.log("[DATABASE] Ready");
-    await app.listen(7000);
-    console.log("[SERVER] Listening on port 7000");
+    await app.listen(port);
+    console.log("[SERVER] Listening on port,", port);
   } catch (error) {
     console.log(error);
   }

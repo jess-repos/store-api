@@ -16,7 +16,7 @@ const login = async (email, password) => {
     { id: foundUser.id, username: foundUser.username, email: foundUser.email },
     process.env.TOKEN_KEY
   );
-  return { token, foundUser };
+  return { token, user: foundUser };
 };
 
 module.exports = { login };

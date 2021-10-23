@@ -8,7 +8,7 @@ router.post("/create", async (req, res) => {
   res.send(response);
 });
 router.post("/update", verifyToken, async (req, res) => {
-  const { id } = req.user.id;
+  const { id } = req.user;
   const updatedUserValues = req.body;
   const response = await UserServices.updateUser(id, updatedUserValues);
   res.send(response);
