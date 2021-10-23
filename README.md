@@ -38,7 +38,7 @@
 
 **User Model**
 
-'
+```
 {
     username: {
       type: DataTypes.STRING,
@@ -58,5 +58,4 @@
       validate: { len: [4, 128] },
     },
   }
-'
-
+```
