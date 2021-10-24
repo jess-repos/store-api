@@ -13,7 +13,7 @@ app.use("/auth", require("./routes/auth"));
 const run = async () => {
   try {
     await connection.sync();
-    // await connection.sync({ force: true }); // wipes all table data
+    // await connection.sync({ force: true }); // wipes all table data user when make changes to models
     console.log("[DATABASE] Ready");
     await app.listen(port);
     console.log("[SERVER] Listening on port,", port);
