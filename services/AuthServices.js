@@ -1,11 +1,18 @@
 const User = require("../models/User");
 const asyncIO = require("../utilities/asyncIO");
 const jwt = require("jsonwebtoken");
+const Op = require("sequelize").Op;
 
-const login = async (email, password) => {
+const login = async (user, password) => {
   const [foundUser, findUserError] = await asyncIO(() =>
     User.findOne({
-      where: { email: email, password: password },
+      where: {
+        password: password,
+        [Op.or]: [
+          { email: { [Op.eq]: user } },
+          { username: { [Op.eq]: user } },
+        ],
+      },
       attributes: ["id", "username", "email"],
     })
   );
