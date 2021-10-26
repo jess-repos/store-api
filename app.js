@@ -16,7 +16,7 @@ app.use("/products", require("./routes/product"));
 const run = async () => {
   try {
     await connection.sync();
-    // await connection.sync({ force: true }); // wipes all table data
+    // insertValues();
     console.log("[DATABASE] Ready");
 
     await app.listen(port);
@@ -28,6 +28,8 @@ const run = async () => {
 run();
 
 const insertValues = async () => {
+  await connection.sync({ force: true }); // wipes all table data
+
   await User.create({
     username: "nine",
     email: "nine@emailcom",
@@ -45,7 +47,7 @@ const insertValues = async () => {
     password: "jess",
     is_seller: true,
   });
-  for (let i = 0; i < 10; i++) {
+  for (let i = 1; i <= 10; i++) {
     await Product.create({
       name: `product ${i}`,
       description: `description ${i}`,
@@ -54,7 +56,7 @@ const insertValues = async () => {
       seller_id: 2,
     });
   }
-  for (let i = 10; i < 20; i++) {
+  for (let i = 11; i <= 20; i++) {
     await Product.create({
       name: `product ${i}`,
       description: `description ${i}`,

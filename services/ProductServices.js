@@ -49,19 +49,24 @@ const updateProduct = async (user_id, id, updatedProductValues) => {
   return updatedProduct;
 };
 
-const deleteProduct = async (id) => {
+const deleteProduct = async (user_id, id) => {
   const [existingProduct, findExistingProductError] = await asyncIO(() =>
     Product.findOne({ where: { id: id } })
   );
   if (findExistingProductError) return { error: findExistingProductError };
   if (!existingProduct) return { error: "Product does not exist" };
 
+  if (user_id !== existingProduct.seller_id) {
+    return { error: "You do not own this product" };
+  }
+
+  console.log("HERE");
   const [deletedProduct, deleteProductError] = await asyncIO(() =>
     existingProduct.destroy()
   );
   if (deleteProductError) return { error: deleteProductError };
 
-  return { deletedCount: deletedProduct };
+  return { deletedProduct };
 };
 
 module.exports = {
