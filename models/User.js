@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../database/connection");
 
-
 class User extends Model {}
 
 User.init(
@@ -22,6 +21,11 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: { len: [4, 128] },
+    },
+    is_seller: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     },
   },
   {

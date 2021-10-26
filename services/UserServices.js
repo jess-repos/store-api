@@ -17,9 +17,11 @@ const updateUser = async (id, updatedUserValues) => {
   if (findExistingUserError) return { error: findExistingUserError };
   if (!existingUser) return { error: "User does not exist" };
 
-  existingUser.username = updatedUserValues.username;
-  existingUser.email = updatedUserValues.email;
-  existingUser.password = updatedUserValues.password;
+  const { username, email, password } = updatedUserValues;
+
+  if (username) existingUser.username = username;
+  if (email) existingUser.email = email;
+  if (password) existingUser.password = password;
 
   const [updatedUser, updateUserError] = await asyncIO(() =>
     existingUser.save()

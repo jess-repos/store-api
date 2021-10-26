@@ -1,0 +1,7 @@
+what to do next
+continue authentication on productservices
+
+add user_id to product to know who created it  //done
+
+add validation when updating and deleting product to make sure 
+only the user who created it can delete/update it
