@@ -67,6 +67,11 @@ Shooping Platform API with User authentication using Json Web Tokens
       allowNull: false,
       validate: { len: [4, 128] },
     },
+    is_seller: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+    },
   }
 ```
 
