@@ -1,6 +1,6 @@
 # Store API by jess-repos
 
-Shooping Platform API with User authentication using Json Web Tokens
+Shoping Platform API with User authentication using Json Web Tokens
 
 ## How to start
 
